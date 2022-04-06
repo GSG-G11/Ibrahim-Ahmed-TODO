@@ -1,5 +1,4 @@
-import React from 'react';
-import './form.css';
+import React from 'react';import './form.css';
 
 const CreateNotes = ({
   title,
@@ -18,7 +17,7 @@ const CreateNotes = ({
             name='title'
             id='title'
             value={title}
-            onKeyUp={handleChange}
+            onChange={handleChange}
             placeholder='Enter Your Title...'
           />
         </div>
@@ -28,7 +27,7 @@ const CreateNotes = ({
             id='description'
             name='description'
             value={description}
-            onKeyUp={handleChange}
+            onChange={handleChange}
             placeholder='Enter Your description...'>
             {description}
           </textarea>
@@ -42,7 +41,6 @@ const CreateNotes = ({
             Submit
           </button>
         </div>
-
       </form>
     </div>
   );
