@@ -1,7 +1,7 @@
 .modal__background {
   position: fixed;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #0000007d;
   top: 0;
   left: 0;
   right: 0;
@@ -24,8 +24,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.3s;
-  overflow-y: scroll;
-  overflow-x: hidden;
 }
 
 .modal__container::-webkit-scrollbar {

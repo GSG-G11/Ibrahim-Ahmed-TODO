@@ -1,36 +1,50 @@
 import React from 'react';
+import './form.css';
 
-const CreateNotes = ({ title, description, handleChange, handleCreateTodo }) => {
+const CreateNotes = ({
+  title,
+  description,
+  handleChange,
+  handleCreateTodo,
+}) => {
   return (
-    <>
-      <div>
-        <h1> Create Modal </h1>
-        <form>
-          <label>
-            Title
-            <input
-              type='text'
-              name='title'
-              value={title}
-              onKeyUp={handleChange}
-            />
-          </label>
-          <label>
-            Description
-            <textarea
-              name='description'
-              value={description}
-              onKeyUp={handleChange}>
-              {description}
-            </textarea>
-          </label>
+    <div className='container__modal__todo'>
+      <h1 className='title__modal__todo'> Create ToDo </h1>
+      <form className='form__group__todo'>
+        <div className='form__input__todo'>
+          <label htmlFor='title'>Title</label>
+          <input
+            type='text'
+            name='title'
+            id='title'
+            value={title}
+            onKeyUp={handleChange}
+            placeholder='Enter Your Title...'
+          />
+        </div>
+        <div className='form__input__todo'>
+          <label htmlFor='description'>Description</label>
+          <textarea
+            id='description'
+            name='description'
+            value={description}
+            onKeyUp={handleChange}
+            placeholder='Enter Your description...'>
+            {description}
+          </textarea>
+        </div>
 
-          <button type='button' onClick={handleCreateTodo}>
+        <div className='form__input__todo'>
+          <button
+            className='btn__create__todo'
+            type='button'
+            onClick={handleCreateTodo}>
             Submit
           </button>
-        </form>
-      </div>
-    </>
+        </div>
+
+      </form>
+    </div>
   );
 };
 

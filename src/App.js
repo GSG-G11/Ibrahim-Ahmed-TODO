@@ -57,6 +57,10 @@ export default class App extends Component {
     this.setState({ notes: allNotes, isOpen: false, componentName: '' });
   };
 
+  handleUpdateTodo = () => {
+    //  handleUpdateTodo....
+  };
+
   render() {
     const { isOpen, componentName, notes } = this.state;
     const componentsLookUp = { CreateNotes, UpdateNotes };
@@ -69,18 +73,19 @@ export default class App extends Component {
           <SelectedComponent
             handleChange={this.handleChange}
             handleCreateTodo={this.handleCreateTodo}
+            handleUpdateTodo={this.handleUpdateTodo}
           />
         );
       }
     }
     return (
       <>
-      <div>
-        <Header openModalHandler={this.openModalHandler}/>
-        <Body notes={notes}/>
-      </div>
+        <div>
+          <Header openModalHandler={this.openModalHandler} />
+          <Body notes={notes} />
+        </div>
 
-      <Modal
+        <Modal
           isOpen={isOpen}
           closeModalHandler={() => this.closeModalHandler(isOpen)}>
           {renderComponent}
