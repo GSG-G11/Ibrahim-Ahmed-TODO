@@ -5,6 +5,7 @@ const CreateNotes = ({
   description,
   handleChange,
   handleCreateTodo,
+  error,
 }) => {
   return (
     <div className='container__modal__todo'>
@@ -32,7 +33,7 @@ const CreateNotes = ({
             {description}
           </textarea>
         </div>
-
+       { error && <div className=' form__input__todo'><p className='error'>Inputs Should not be empty!</p></div>}
         <div className='form__input__todo'>
           <button
             className='btn__create__todo'
@@ -41,7 +42,8 @@ const CreateNotes = ({
             Submit
           </button>
         </div>
-      </form>
+
+      </form>  
     </div>
   );
 };

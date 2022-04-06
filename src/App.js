@@ -1,30 +1,31 @@
-import React, { Component } from 'react';
-import Header from './components/header';
-import Body from './components/body';
-import Modal from './components/modal';
-import CreateNotes from './components/forms/CreateNotes';
-import UpdateNotes from './components/forms/UpdateNotes';
+import React, { Component } from "react";
+import Header from "./components/header";
+import Body from "./components/body";
+import Modal from "./components/modal";
+import CreateNotes from "./components/forms/CreateNotes";
+import UpdateNotes from "./components/forms/UpdateNotes";
 
 export default class App extends Component {
   state = {
-    noteId: '',
+    noteId: "",
     isOpen: false,
-    componentName: '',
-    title: '',
-    description: '',
+    componentName: "",
+    title: "",
+    description: "",
+    error: false,
     notes: [
       {
         id: 1,
-        title: 'Learn React',
-        description: 'Learn React',
-        createdAt: 'Wed Apr 06 2022',
+        title: "Learn React",
+        description: "Learn React",
+        createdAt: "Wed Apr 06 2022",
         done: false,
       },
       {
         id: 2,
-        title: 'Learn React 2',
-        description: 'Learn React2',
-        createdAt: 'Wed Apr 06 2022',
+        title: "Learn React 2",
+        description: "Learn React2",
+        createdAt: "Wed Apr 06 2022",
         done: true,
       },
     ],
@@ -33,10 +34,11 @@ export default class App extends Component {
   closeModalHandler = (isOpen) => {
     this.setState({
       isOpen: !isOpen,
-      componentName: '',
-      noteId: '',
-      title: '',
-      description: '',
+      componentName: "",
+      noteId: "",
+      title: "",
+      description: "",
+      error: false,
     });
   };
 
@@ -44,6 +46,9 @@ export default class App extends Component {
     this.setState({
       isOpen: !this.state.isOpen,
       componentName: componentName,
+      title: "",
+      description: "",
+      error: false,
     });
   };
 
@@ -54,6 +59,7 @@ export default class App extends Component {
       description,
       isOpen: !this.state.isOpen,
       componentName,
+      error: false,
     });
   };
 
@@ -64,26 +70,34 @@ export default class App extends Component {
 
   handleCreateTodo = () => {
     let allNotes = [...this.state.notes];
-    allNotes = [
-      ...allNotes,
-      {
-        id: allNotes.length ? allNotes.pop().id + 1 : 1,
-        title: this.state.title,
-        description: this.state.description,
-        createdAt: new Date().toDateString(),
-        done: false,
-      },
-    ];
-    this.setState({ notes: allNotes, isOpen: false, componentName: '' });
+    if (this.state.title.length && this.state.description.length) {
+      allNotes = [
+        ...allNotes,
+        {
+          id: allNotes.length ? allNotes.pop().id + 1 : 1,
+          title: this.state.title,
+          description: this.state.description,
+          createdAt: new Date().toDateString(),
+          done: false,
+        },
+      ];
+      this.setState({ notes: allNotes, isOpen: false, componentName: "" });
+    } else {
+      this.setState({error : true})
+    }
   };
 
   handleUpdateTodo = () => {
+    if (this.state.title.length && this.state.description.length){
     const { noteId, title, description } = this.state;
     let allNotes = [...this.state.notes];
     const UpdateNotes = allNotes.filter(({ id }) => noteId === id);
     UpdateNotes[0].title = title;
     UpdateNotes[0].description = description;
-    this.setState({ isOpen: false, componentName: '' });
+    this.setState({ isOpen: false, componentName: "" });
+    }else {
+      this.setState({error : true}) 
+    }
   };
 
   deleteCardHandler = (noteId) => {
@@ -96,11 +110,11 @@ export default class App extends Component {
     let allNotes = [...this.state.notes];
     const UpdateNotes = allNotes.filter(({ id }) => noteId === id);
     UpdateNotes[0].done = !UpdateNotes[0].done;
-    this.setState({ isOpen: false, componentName: '' });
+    this.setState({ isOpen: false, componentName: "" });
   };
 
   render() {
-    const { isOpen, componentName, notes, title, description } = this.state;
+    const { isOpen, componentName, notes, title, description, error, } = this.state;
     const componentsLookUp = { CreateNotes, UpdateNotes };
     let renderComponent;
 
@@ -111,6 +125,7 @@ export default class App extends Component {
           <SelectedComponent
             title={title}
             description={description}
+            error = {error}
             handleChange={this.handleChange}
             handleCreateTodo={this.handleCreateTodo}
             handleUpdateTodo={this.handleUpdateTodo}
@@ -121,7 +136,7 @@ export default class App extends Component {
     return (
       <>
         <div>
-          <Header openModalHandler={this.openModalHandler} />
+          <Header openModalHandler={this.openModalHandler} numNotes={notes.length} />
           <Body
             notes={notes}
             deleteCardHandler={this.deleteCardHandler}
@@ -132,7 +147,8 @@ export default class App extends Component {
 
         <Modal
           isOpen={isOpen}
-          closeModalHandler={() => this.closeModalHandler(isOpen)}>
+          closeModalHandler={() => this.closeModalHandler(isOpen)}
+        >
           {renderComponent}
         </Modal>
       </>
