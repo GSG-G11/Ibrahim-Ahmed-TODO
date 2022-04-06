@@ -1,13 +1,21 @@
 import React from 'react';
 import Card from '../cards';
 import './body.css';
-const index = () => {
+const index = ({ notes }) => {
   return (
     <div>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {notes.map(({ id, title, description, createdAt, done }) => {
+        return (
+          <Card
+            key={id}
+            id={id}
+            title={title}
+            description={description}
+            createdAt={createdAt}
+            done={done}
+          />
+        );
+      })}
     </div>
   );
 };

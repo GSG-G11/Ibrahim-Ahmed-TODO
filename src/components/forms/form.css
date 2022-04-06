@@ -1,0 +1,81 @@
+.container__modal__todo {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  width: 100%;
+}
+.title__modal__todo {
+  font-style: bold;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 40px;
+  color: #333;
+  text-align: center;
+}
+
+.form__group__todo {
+  display: flex;
+  width: 95%;
+  flex-direction: column;
+  margin: 1rem auto;
+  gap: 0.5rem;
+}
+
+.form__input__todo {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 0.8rem;
+}
+
+.form__input__todo label {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #333;
+  margin-bottom: 0.2rem;
+}
+
+.form__input__todo input {
+  background: #fbfbfb;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #aa73e1;
+}
+
+.form__input__todo textarea {
+  background: #fbfbfb;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  width: 100%;
+  height: 150px;
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 150px;
+  min-height: 150px;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #aa73e1;
+}
+
+.btn__create__todo {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: white;
+  background: #9249da;
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  transition: all ease-in-out 0.4s;
+}
+
+.btn__create__todo:hover {
+  background: #7748a6;
+}
