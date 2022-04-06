@@ -1,7 +1,6 @@
 
 .header {
   background-color: rgba(114, 118, 231, 0.35);
-  background-image: url("../../images/backGround-header.jpg");
   color: white;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,7 +19,17 @@
   justify-content: space-between;
  
 }
+.header-header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.header-header p {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
 .header > * {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   text-transform: capitalize;

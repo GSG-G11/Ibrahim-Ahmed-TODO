@@ -1,6 +1,6 @@
-import React from 'react';
-import Card from '../cards';
-import './body.css';
+import React from "react";
+import Card from "../cards";
+import "./body.css";
 const index = ({
   notes,
   deleteCardHandler,
@@ -8,8 +8,8 @@ const index = ({
   changeCompleted,
 }) => {
   return (
-    <div className='tasks-list-body'>
-      {notes.map(({ id, title, description, createdAt, done }) => {
+    <div className="tasks-list-body">
+      { notes.length !== 0 && notes.map(({ id, title, description, createdAt, done }) => {
         return (
           <Card
             key={id}
@@ -24,6 +24,8 @@ const index = ({
           />
         );
       })}
+      {notes.length === 0 && <p className="no-tasks">You haven't got any notes yet!</p>}
+
     </div>
   );
 };
