@@ -53,7 +53,7 @@ export default class App extends Component {
         id: allNotes.length + 1,
         title: this.state.title,
         description: this.state.description,
-        createdAt: '25-02-2021',
+        createdAt: Date.now(),
         done: false,
       },
     ];
