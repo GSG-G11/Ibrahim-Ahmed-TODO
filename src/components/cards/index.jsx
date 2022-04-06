@@ -1,37 +1,44 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import "./card.css";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import './card.css';
 const index = ({
   id,
   title,
   description,
   createdAt,
   done,
-  deleteCardHnadler,
+  deleteCardHandler,
+  openEditModalHandler,
+  changeCompleted,
 }) => {
   return (
-    <div className="card-card">
-      <div className="card-head">
-        <h2>{title}</h2>
-        <div className="card-edit-delete">
+    <div className='card-card'>
+      <div className='card-head'>
+        <h2
+          className={done ? 'completed__task' : ''}
+          onClick={() => changeCompleted(id)}>
+          {title}
+        </h2>
+        <div className='card-edit-delete'>
           <FontAwesomeIcon
-            className="card-edit-btn"
+            className='card-edit-btn'
             icon={faEdit}
-
-            // onClick={closeModalHandler}
+            onClick={() =>
+              openEditModalHandler('UpdateNotes', id, title, description)
+            }
           />
           <FontAwesomeIcon
-            className="card-delete-btn"
+            className='card-delete-btn'
             icon={faTrash}
-            onClick={() => deleteCardHnadler(id)}
+            onClick={() => deleteCardHandler(id)}
           />
         </div>
       </div>
-      <div className="card-body-description">
-        <p>{description}</p>
+      <div className='card-body-description'>
+        <p className={done ? 'completed__task' : ''}>{description}</p>
       </div>
-      <div className="card-footer">{createdAt}</div>
+      <div className='card-footer'>{createdAt}</div>
     </div>
   );
 };

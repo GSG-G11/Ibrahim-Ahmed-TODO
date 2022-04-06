@@ -17,7 +17,7 @@ const UpdateNotes = ({
             name='title'
             id='title'
             value={title}
-            onKeyUp={handleChange}
+            onChange={handleChange}
             placeholder='Enter Your Title...'
           />
         </div>
@@ -27,7 +27,7 @@ const UpdateNotes = ({
             id='description'
             name='description'
             value={description}
-            onKeyUp={handleChange}
+            onChange={handleChange}
             placeholder='Enter Your description...'>
             {description}
           </textarea>

@@ -1,5 +1,4 @@
-.card-card {
-  margin-bottom: 1rem;
+.card-card {  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
@@ -17,6 +16,7 @@
 .card-head h2 {
   color: #a968e9;
   text-transform: capitalize;
+  cursor: pointer;
 }
 .card-edit-delete {
   display: flex;
@@ -46,4 +46,9 @@
   color: cadetblue;
   font-size: 0.8rem;
   font-style: italic;
+}
+
+.completed__task {
+  text-decoration: line-through;
+  opacity: 0.8;
 }

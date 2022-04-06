@@ -1,10 +1,14 @@
 import React from 'react';
 import Card from '../cards';
 import './body.css';
-const index = ({ notes, deleteCardHnadler }) => {
+const index = ({
+  notes,
+  deleteCardHandler,
+  openEditModalHandler,
+  changeCompleted,
+}) => {
   return (
-    <div
-     className='tasks-list-body'>
+    <div className='tasks-list-body'>
       {notes.map(({ id, title, description, createdAt, done }) => {
         return (
           <Card
@@ -14,7 +18,9 @@ const index = ({ notes, deleteCardHnadler }) => {
             description={description}
             createdAt={createdAt}
             done={done}
-            deleteCardHnadler={deleteCardHnadler}
+            deleteCardHandler={deleteCardHandler}
+            openEditModalHandler={openEditModalHandler}
+            changeCompleted={changeCompleted}
           />
         );
       })}
