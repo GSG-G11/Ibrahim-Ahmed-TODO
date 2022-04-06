@@ -46,14 +46,17 @@ export default class App extends Component {
   };
 
   handleCreateTodo = () => {
-    const allNotes = [...this.state.notes];
-    allNotes.push({
-      id: allNotes.length + 1,
-      title: this.state.title,
-      description: this.state.description,
-      createdAt: '25-02-2021',
-      done: false,
-    });
+    let allNotes = [...this.state.notes];
+    allNotes = [
+      ...allNotes,
+      {
+        id: allNotes.length + 1,
+        title: this.state.title,
+        description: this.state.description,
+        createdAt: '25-02-2021',
+        done: false,
+      },
+    ];
     this.setState({ notes: allNotes, isOpen: false, componentName: '' });
   };
 
