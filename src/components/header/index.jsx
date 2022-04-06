@@ -1,9 +1,10 @@
 import React from 'react';
 import './header.css';
-const index = () => {
+const index = ({ openModalHandler }) => {
   return (
     <div>
-      <button>+</button>
+      <button onClick={() => openModalHandler('CreateNotes')}>create</button>
+      <button onClick={() => openModalHandler('UpdateNotes')}>edit</button>
     </div>
   );
 };
