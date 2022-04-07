@@ -1,11 +1,8 @@
-# Ibrahim-Ahmed-TODO
-
+# TODO App
 
 # Description
 
-Welcome to Ibrahim-Ahmed-TODO
-
-
+Welcome to our Project TODO App, This program was intended to assist us in quickly creating tiny notes, which we can later delete or change, as well as complete or not.
 
 # Live Link
 
@@ -13,11 +10,14 @@ Welcome to Ibrahim-Ahmed-TODO
 
 # Why?
 
-.....
+When you have a list of things to remember, such as a grocery list or a job list, you don't know where to put them since you're forgetting or they're too long. As a result, we will take care of this issue for you.
 
 # User Journey
 
 - As a user I can
+  * The first section I saw was an app with a current date and time, as well as a to-do list.
+  * When we click the add button, a box appears asking us to make a new note.
+  * We can modify, delete, or complete this note after it has been added.
 
 * .....
 
@@ -25,10 +25,12 @@ Welcome to Ibrahim-Ahmed-TODO
 
 As a user I want to be able to
 
-- ......
+- Show All notes 
+- Edit notes
+- delete them
+- and add new notes
 
 # Technologies Used
-
 - React.js
 
 # Available Scripts
