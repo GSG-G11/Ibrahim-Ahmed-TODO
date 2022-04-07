@@ -1,5 +1,4 @@
-.tasks-list-body {  background-color: var(--bg-body-todo);
-  border-radius: 0 0 8px 8px;
+.tasks-list-body {  border-radius: 0 0 8px 8px;
   width: 860px;
   height: 400px;
   max-height: 400px;
@@ -10,8 +9,9 @@
   overflow-y: scroll;
   padding: 2.5rem 1rem;
   background: #f8f0ff;
+  padding-top: 3.5rem;
 }
-.no-tasks{
+.no-tasks {
   width: 100%;
   text-align: center;
   font-size: 1.5rem;

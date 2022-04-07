@@ -1,4 +1,3 @@
-
 .header {
   background-color: rgba(114, 118, 231, 0.35);
   color: white;
@@ -17,13 +16,28 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
- 
 }
-.header-header{
+
+.overlay__header {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    178.58deg,
+    #9430f9 3.72%,
+    rgba(170, 124, 205, 0.088) 98.79%
+  );
+  border-radius: 15px 15px 0 0;
+}
+
+.header-header {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 999;
 }
 
 .header-header p {
@@ -44,24 +58,25 @@
 .header-bottom {
   display: flex;
   justify-content: space-between;
+  z-index: 99;
 }
 
 .addTask {
-  background: #c79af4;
+  background: #a167dc;
   box-shadow: 0px 4px 6px rgba(197, 136, 244, 0.15);
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
   color: white;
-  font-size: 2rem;
+  font-size: 1.6rem;
   position: absolute;
   right: 5rem;
   bottom: -1.5rem;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 .addTask:hover {
-cursor: pointer;
-background-color: #ae8bd0;
+  background: #8456b3;
 }
 @media only screen and (max-width: 900px) {
   /*  container fixed header */
@@ -78,5 +93,9 @@ background-color: #ae8bd0;
     top: 0;
     left: 0;
     transform: translate(0, 0);
+  }
+
+  .overlay__header {
+    border-radius: 0;
   }
 }
