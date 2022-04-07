@@ -2,17 +2,11 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 import './modal.css';
-const index = ({ children, isOpen, closeModalHandler }) => {
-  const classModal = () => {
-    return isOpen ? 'modal__show' : 'modal__hide';
-  };
-
+const index = ({ children, closeModalHandler }) => {
   return (
-    <>
-      <div
-        className={`modal__background ${classModal()}`}
-        onClick={closeModalHandler}></div>
-      <div className={`modal__container ${classModal()}`}>
+    <div>
+      <div className='modal__background' onClick={closeModalHandler}></div>
+      <div className='modal__container'>
         <FontAwesomeIcon
           className='modal__close__btn'
           icon={faClose}
@@ -21,7 +15,7 @@ const index = ({ children, isOpen, closeModalHandler }) => {
         />
         <div className={'modal__content'}>{children}</div>
       </div>
-    </>
+    </div>
   );
 };
 
