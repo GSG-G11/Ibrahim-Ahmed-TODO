@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import './header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import img1 from '../../images/backGround-header.jpg';
-import img2 from '../../images/IMG_20210412_041914.jpg';
-import img3 from '../../images/Tumblr_l_45021871112375.jpg';
-import img4 from '../../images/IMG_20210417_110829.jpg';
-import img5 from '../../images/Tumblr_l_173327231835022.jpg';
+import imgsName from './listOfImages';
 export default class index extends Component {
   state = {
     time: new Date(),
@@ -31,13 +27,13 @@ export default class index extends Component {
   }
 
   changeImg = () => {
-    const imgsName = [img1, img2, img3, img4, img5];
     const randomImg = this.state.random;
 
     return imgsName[randomImg];
   };
 
   render() {
+    
     const { numNotes, openModalHandler } = this.props;
     const { time } = this.state;
     const d = new Date();

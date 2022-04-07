@@ -1,4 +1,5 @@
-.header {  background-color: rgba(114, 118, 231, 0.35);
+.header {
+  background-color: rgba(114, 118, 231, 0.35);
   color: white;
   background-size: cover;
   background-repeat: no-repeat;
@@ -25,8 +26,8 @@
   left: 0;
   background: linear-gradient(
     178.58deg,
-    #b88ce4 3.72%,
-    rgba(197, 136, 244, 0.09) 98.79%
+    #9430f9 3.72%,
+    rgba(170, 124, 205, 0.088) 98.79%
   );
   border-radius: 15px 15px 0 0;
 }
