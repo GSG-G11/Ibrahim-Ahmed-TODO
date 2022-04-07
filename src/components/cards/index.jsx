@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 import './card.css';
 const index = ({
   id,
@@ -13,7 +14,11 @@ const index = ({
   changeCompleted,
 }) => {
   return (
-    <div className='card-card'>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className='card-card'>
       <div className='card-head'>
         <h2
           className={done ? 'completed__task' : ''}
@@ -39,7 +44,7 @@ const index = ({
         <p className={done ? 'completed__task' : ''}>{description}</p>
       </div>
       <div className='card-footer'>{createdAt}</div>
-    </div>
+    </motion.div>
   );
 };
 
