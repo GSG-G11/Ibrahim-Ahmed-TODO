@@ -13,22 +13,7 @@ export default class App extends Component {
     title: "",
     description: "",
     error: false,
-    notes: [
-      {
-        id: 1,
-        title: "Learn React",
-        description: "Learn React",
-        createdAt: "Wed Apr 06 2022",
-        done: false,
-      },
-      {
-        id: 2,
-        title: "Learn React 2",
-        description: "Learn React2",
-        createdAt: "Wed Apr 06 2022",
-        done: true,
-      },
-    ],
+    notes: [],
   };
 
   closeModalHandler = (isOpen) => {
