@@ -4,10 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import imgsName from './listOfImages';
 import { motion } from 'framer-motion';
+
+import { ColorExtractor } from 'react-color-extractor';
 export default class index extends Component {
   state = {
     time: new Date(),
     random: Math.floor(Math.random() * 17),
+    // colors: [],
   };
 
   currentTime = () => {
@@ -29,8 +32,11 @@ export default class index extends Component {
 
   changeImg = () => imgsName[this.state.random];
 
+  // getColors = (colors) =>
+  //   this.setState((state) => ({ colors: [...state.colors, ...colors] }));
+
   render() {
-    const { numNotes, openModalHandler } = this.props;
+    const { numNotes, openModalHandler, getColors } = this.props;
     const { time } = this.state;
     const d = new Date();
     let day = d.toLocaleDateString('en-us', { weekday: 'long' });
@@ -43,6 +49,13 @@ export default class index extends Component {
         style={{
           backgroundImage: `url(${this.changeImg()})`,
         }}>
+        <ColorExtractor getColors={getColors}>
+          <img
+            style={{ display: 'none' }}
+            src={this.changeImg()}
+            alt='images'
+          />
+        </ColorExtractor>
         <div className='overlay__header'></div>
         <div className='header-header'>
           <h1>To Do App</h1>
