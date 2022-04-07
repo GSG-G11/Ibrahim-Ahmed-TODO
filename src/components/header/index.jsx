@@ -3,10 +3,11 @@ import './header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import imgsName from './listOfImages';
+import { motion } from 'framer-motion';
 export default class index extends Component {
   state = {
     time: new Date(),
-    random: Math.floor(Math.random() * 5),
+    random: Math.floor(Math.random() * 17),
   };
 
   currentTime = () => {
@@ -26,21 +27,18 @@ export default class index extends Component {
     setInterval(() => this.currentTime(), 1000);
   }
 
-  changeImg = () => {
-    const randomImg = this.state.random;
-
-    return imgsName[randomImg];
-  };
+  changeImg = () => imgsName[this.state.random];
 
   render() {
-    
     const { numNotes, openModalHandler } = this.props;
     const { time } = this.state;
     const d = new Date();
     let day = d.toLocaleDateString('en-us', { weekday: 'long' });
 
     return (
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         className='header'
         style={{
           backgroundImage: `url(${this.changeImg()})`,
@@ -67,7 +65,7 @@ export default class index extends Component {
           onClick={() => openModalHandler('CreateNotes')}>
           <FontAwesomeIcon icon={faPlus} />
         </button>
-      </div>
+      </motion.div>
     );
   }
 }
