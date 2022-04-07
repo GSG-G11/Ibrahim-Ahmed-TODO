@@ -6,7 +6,7 @@ Welcome to our Project TODO App, This program was intended to assist us in quick
 
 # Live Link
 
-> Sorry we are not deploy
+[Go To Our APP](https://nice-to-do.netlify.app/)
 
 # Why?
 
